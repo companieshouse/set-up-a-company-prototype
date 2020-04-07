@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Where will the company be registered?
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="principle-place-of-business" method="get">
+
+        <h1 class="govuk-heading-xl">Where will the company be registered?</h1>
+
+        <p>
+          *Company name* must be registered in the same part of the UK as its registered office address. For example, companies registered in Scotland must have their registered office address in Scotland.</p>
+
+        {{ govukDetails({
+          summaryText: "Does it matter where my company is registered?",
+          html: "<p>You can't change where *company name* is registered after you've set it up unless your registered office address is in Wales. In this case, you can choose 'England and Wales' or 'Wales' and change it after you've set up *company name*</p><p>If you want to use a Welsh name ending., *company name* must be registered in Wales (not 'England and Wales').</p>"
+        }) }}
+
+        {{ govukRadios({
+  idPrefix: "where-will-the-company-be-registered",
+  name: "where-do-you-live",
+  fieldset: {
+    legend: {
+      text: " ",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "englandwales",
+      text: "England and Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    }
+  ]
+}) }}
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Are you starting a new application?
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="relationship-to-the-company" method="get">
+
+        {{ govukRadios({
+   idPrefix: "are-you-starting-a-new-application",
+   name: "are-you-starting-a-new-application",
+   fieldset: {
+     legend: {
+       text: "Are you starting a new application?",
+       isPageHeading: true,
+       classes: "govuk-fieldset__legend--l"
+     }
+   },
+   items: [
+     {
+       value: "yes",
+       text: "Yes"
+     },
+     {
+       value: "no",
+       text: "No - I've already started one"
+     }
+   ]
+ }) }}
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

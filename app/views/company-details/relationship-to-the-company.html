@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What’s your relationship to the company?
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="CIC" method="get">
+
+        {% set relationshipToCompanyHtml %}
+        {{ govukInput({
+          id: "relationshipToCompanyText",
+          name: "relationshipToCompanyText",
+          type: "text",
+          label: {
+            text: "Enter details here"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          idPrefix: "relationshipToCompany",
+          name: "relationshipToCompany",
+          fieldset: {
+
+            legend: {
+              text: "What’s your relationship to the company? ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+
+            {
+              value: "Director and/or person of significant control (PSC)",
+              text: "Director and/or person of significant control (PSC)",
+              checked: checked("relationshipToCompany", "Director and/or person of significant control (PSC)")
+            },
+            {
+              value: "Secretary",
+              text: "Secretary",
+              checked: checked("relationshipToCompany", "Secretary")
+            },
+            {
+              value: "Accountant, agent or solicitor",
+              text: "Accountant, agent or solicitor",
+              checked: checked("relationshipToCompany", "Accountant, agent or solicitor")
+            },
+            {
+              value: "Someone else",
+              text: "Someone else",
+              checked: checked("relationshipToCompany", "Someone else"),
+              conditional: {
+                html: relationshipToCompanyHtml
+              }
+            }
+          ]
+        }) }}
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

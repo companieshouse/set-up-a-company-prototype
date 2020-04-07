@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Company name
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Company name</h1>
+
+      <form class="form" action="registered-office" method="get">
+
+        {{ govukInput({
+  label: {
+    text: "What is the company name?"
+  },
+  classes: "govuk-!-width-one-half",
+  id: "company-name",
+  name: "company-name"
+}) }}
+
+        {{ govukDetails({
+summaryText: "Check the company name against an existing trade mark",
+html: "<a href='https://www.gov.uk/search-for-trademark'>Use the trademark search</a> to check if the company name matches an existing trademark. If it does, consider choosing a different name. Companies House won't carry out this check for you."
+}) }}
+
+        {{ govukRadios({
+  idPrefix: "company-name",
+  name: "company-name",
+  fieldset: {
+    legend: {
+      text: "Which company name ending would you prefer to go on the public record?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+
+hint: {
+text: "There is no difference between the name endings 'Limited' or 'Ltd', except for how they look."
+},
+  items: [
+    {
+      value: "limited",
+      text: "Limited"
+    },
+    {
+      value: "ltd",
+      text: "Ltd"
+    },
+    {
+      value: "other",
+      text: "Other name endings - including Welsh"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

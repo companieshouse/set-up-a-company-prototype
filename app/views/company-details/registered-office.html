@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is the company's registered office address?
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What is the company's registered office address?</h1>
+      <form class="form" action="confirm-registered-office" method="get">
+
+        <p>We'll use this address to send notifications to the company You can use a business or home address that's in the UK</p>
+        <p>This address will be publicly available on the Companies House online register</p>
+
+        {{ govukDetails({
+  summaryText: "I don't want my home address to be publicly available",
+  html: "<p>If you don't want to use your home address, you can use a business address service. You'll need their permission and they usually charge a fee</p>
+  <p>Learn more about <a href=''>how your personal information is used</a> on the Companies House online public register and <a href=''>how to protect your home address</a>.</p>"
+}) }}
+
+        {{ govukInput({
+  label: {
+    text: "UK postcode"
+  },
+  classes: "govuk-input--width-10",
+  id: "uk-postcode",
+  name: "uk-postcode"
+}) }}
+
+        {{ govukInput({
+  label: {
+    text: "Property name or number"
+  },
+  classes: "govuk-input--width-5",
+  hint: {
+    text: "For example, 'The Mill', '116' or 'Flat 37a'"
+  },
+  id: "uk-postcode",
+  name: "uk-postcode"
+}) }}
+
+        <p>
+          <a href="">Enter your address manually</a>
+        </p>
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

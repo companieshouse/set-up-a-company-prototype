@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Where is the company's 'principle place of business'?
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="principle-place" method="get">
+
+        <h1 class="govuk-heading-xl">What is the company's 'principle place of business'?</h1>
+
+        <p>This is where the company will carry out most of its business activities.</p>
+        <p>If this will be in different locations, use the address where the company will keep its financial or business records.</p>
+
+        {{ govukDetails({
+          summaryText: "The company doesn't have a principle place of business yet",
+          html: "<p>Use the company's registered office address for now and tell HMRC when it changes.</p>"
+        }) }}
+
+        {{ govukRadios({
+  idPrefix: "company-registered",
+  name: "company-registered",
+  fieldset: {
+    legend: {
+      text: " ",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "70wentloog",
+      text: "70 Wentloog Road, Rumney, Cardiff, CF3 3EA, WALES"
+    },
+    {
+      value: "different-address",
+      text: "A different address"
+    }
+  ]
+}) }}
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
