@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check and confirm what your company will be doing
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Check and confirm what your company will be doing</h1>
+
+      {{ govukWarningText({
+  html: "If you're moving goods into or out of the EU (including the UK) you need to <a href=''>get a EORI number</a>. You don't need an EORI number if you're only <a href=''>moving goods between Northern Ireland and Ireland</a>",
+  iconFallbackText: "Warning"
+}) }}
+      <form class="form" action="company-name" method="get">
+
+        {{ govukTable({
+
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Business activity"
+            },
+            {
+              text: " "
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Manufacture of motor vehicles"
+              },
+              {
+                html: "<a href=''>Remove</a>"
+              }
+            ]
+          ]
+        }) }}
+        <p>
+          <a href=''>Add another business activity</a>
+        </p>
+
+        {{ govukButton({
+          text: "Confim and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
