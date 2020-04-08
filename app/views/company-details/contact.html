@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Give us one or more ways to contact *company name*
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Give us one or more ways to contact *company name*</h1>
+      <p>We will only do this is we have questions about the company's Corporation Tax.</p>
+      <form class="form" action="company-name" method="get">
+
+        {{ govukInput({
+          label: {
+            text: "Contact number"
+          },hint: {
+    text: "Give a mobile number, if you have one"
+  },          classes: "govuk-!-width-one-half",id: "contact-number",
+          name: "contact-number"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-!-width-one-half",id: "email-address",
+          name: "email-address"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Other contact number"
+          },
+          classes: "govuk-!-width-one-half",id: "other-contact-number",
+          name: "other-contact-number"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
