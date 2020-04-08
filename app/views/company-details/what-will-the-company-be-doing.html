@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What will the company be doing?
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What will the company be doing?</h1>
+
+      <form class="form" action="company-name" method="get">
+
+        {{ govukInsetText({
+     text: "You can add more business activities on the next page"
+   }) }}{{ govukInput({
+    label: {
+      text: "Start typing a keyword to see a list of business activities"
+    },
+    classes: "govuk-!-width-one-half",
+    hint: {
+      text: "For example, 'motor' or the numerical SIC code if you know it"
+    },
+    id: "one-half",
+    name: "one-half"
+  }) }}
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukDetails({
+    summaryText: "I can't find a business activity",
+    html: "<p>You can't create your own trade description for your company</p>
+    <p>You need to search for a business activity using keywords that best describe what your company does</p>
+    <p>If you can't find an exact match then you should search for other keywords that relate to your business activities</p>
+    <p>You can check the <a href=''>list of trade descriptions (link opens in a new window)</a>, also known as Stabdard Industrial Classification codes, on the Companies House website to help you find a suitable business activity.</p>"
+  }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
