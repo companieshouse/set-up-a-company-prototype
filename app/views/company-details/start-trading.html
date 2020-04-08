@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Give us one or more ways to contact *company name*
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="company-name" method="get">
+
+        <h1 class="govuk-heading-l">When will the company start trading?</h1>
+        <p>
+          This is when the company starts buying or selling goods or services, even if it's not yet making a profit.
+
+          {{ govukInsetText({
+  text: "The company must keep financial records from this date (which is the start of its first accounting period for Corporation Tax)."
+}) }}
+
+          {{ govukRadios({
+  idPrefix: "where-do-you-live",
+  name: "where-do-you-live",
+  fieldset: {
+    legend: {
+      text: " ",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "sameday",
+      text: "On the same date it gets set up"
+    },
+    {
+      value: "differentdate",
+      text: "On a different future date"
+    },
+    {
+      value: "noplans",
+      text: "No plans to start trading or do a business activity yet"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
+          {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+        </form>
+
+      </div>
+    </div>
+
+  {% endblock %}
