@@ -21,8 +21,8 @@
         <p>
           In some situations, a company may need to account for Income Tax. The most common situations are listed below</p>
 
-        <p>Tell us if your company will:</p>
-        <ul>
+        <p class="govuk-body">Tell us if your company will:</p>
+        <ul class="govuk-list govuk-list--bullet">
           <li>pay interest on any non-bank loans, for example to a director who has loaned the company money
           </li>
           <li>make royalty payments, for example for using someone else's patent
@@ -32,23 +32,27 @@
         </ul>
 
         {{ govukRadios({
-  idPrefix: "where-do-you-live",
-  name: "where-do-you-live",
-  fieldset: {
-    legend: {
-      text: " ",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
+  idPrefix: "first-three-months-conditional",
+  name: "first-three-months",
+
   items: [
     {
       value: "yes",
-      text: "Yes"
+      text: "Yes",
+      conditional: {
+       html: "<div class='govuk-inset-text'>
+      You may need to report these payments tp HM Revenue & Customs (HMRC) using form CT61. Afte the company is set up, we will send you the form. If you are not sure about what to include on it, speak to an accountant.
+    </div>"
+      }
     },
     {
       value: "no",
-      text: "No"
+      text: "No",
+      conditional: {
+        html: "<div class='govuk-inset-text'>
+       To understand when you're company may need to account for Income Tax in the future, it is best to speak to an accountant.
+     </div>"
+      }
     }
   ]
 }) }}
