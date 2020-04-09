@@ -46,35 +46,51 @@
   ]
 }) }}
 
-        <h2 class="govuk-heading-s">You can only use this name if all of the following apply:</h2>
-
-        <ul class="govuk-list govuk-list--bullet">
-          <li>it's not identical to any of the names shown</li>
-          <li>the company you're setting up will be part of the same group as MA & CO LIMITED and MA (UK) LTD</li>
-          <li>you can upload permission from these companies that you are allowed to use the name MA LIMITED</li>
-        </ul>
+        {% set chooseAnotherHtml %}
+        {{ govukInput({
+  id: "choose-another",
+  name: "choose-another",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Please choose a different company name"
+  },
+  attributes: {
+    spellcheck: "false"
+  }
+}) }}
+        {% endset -%}
 
         {{ govukRadios({
   idPrefix: "want-to-do",
   name: "want-to-do",
   fieldset: {
     legend: {
-      text: "What do you want to do?",
+      text: "Are you in a group (parent/subsidiary) relationship with any of the companies listed?",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--s"
     }
   },
-  items: [
-    {
-      value: "different",
-      text: "Try a different name"
-    },
-    {
-      value: "upload",
-      text: "Upload permission to use MA LIMITED"
-    }
-  ]
-}) }}
+
+        items: [
+        {
+        value: "yes",
+        text: "Yes",
+        conditional: {
+        html: "<p>
+        you must upload permission from these companies that you are allowed to use the name MA LIMITED, you can do this on the next page.</p>
+        "
+        }
+        },
+        {
+        value: "no",
+        text: "No",
+        conditional: {
+        html: chooseAnotherHtml
+      }
+        }
+        ]
+        }) }}
 
         {{ govukButton({
           text: "Save and continue"
