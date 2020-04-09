@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Company name
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Someone else has already chosen this company name</h1>
+
+      <form class="form" action="registered-office" method="get">
+
+        {{ govukInsetText({
+          text: "If the name you want is identical to the one that someone else has registered you will have to try a different name."
+        }) }}
+
+        {{ govukTable({
+  firstCellIsHeader: false,
+
+  rows: [
+    [
+      {
+        text: "You wanted"
+      },
+      {
+        text: "MA LIMITED"
+      }
+    ],
+    [
+      {
+        text: "Someone else has registered"
+      },
+      {
+        html: "MA & CO LIMITED<br>MA (UK) LTD"
+      }
+    ]
+  ]
+}) }}
+
+        <h2 class="govuk-heading-s">You can only use this name if all of the following apply:</h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>it's not identical to any of the names shown</li>
+          <li>the company you're setting up will be part of the same group as MA & CO LIMITED and MA (UK) LTD</li>
+          <li>you can upload permission fom these companies that you are allowed to use the name MA LIMITED</li>
+        </ul>
+
+        {{ govukRadios({
+  idPrefix: "want-to-do",
+  name: "want-to-do",
+  fieldset: {
+    legend: {
+      text: "What do you want to do?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  items: [
+    {
+      value: "different",
+      text: "Try a different name"
+    },
+    {
+      value: "upload",
+      text: "Upload permission to use MA LIMITED"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
