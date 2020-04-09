@@ -15,13 +15,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Someone else has already chosen this company name</h1>
+      <h1 class="govuk-heading-l">Someone else has already registered a similar company name</h1>
 
       <form class="form" action="registered-office" method="get">
-
-        {{ govukInsetText({
-          text: "If the name you want is identical to the one that someone else has registered you will have to try a different name."
-        }) }}
 
         {{ govukTable({
   firstCellIsHeader: false,
@@ -51,7 +47,7 @@
   id: "choose-another",
   name: "choose-another",
   type: "text",
-  classes: "govuk-!-width-one-third",
+  classes: "govuk-!-width-one-half",
   label: {
     text: "Please choose a different company name"
   },
@@ -66,7 +62,7 @@
   name: "want-to-do",
   fieldset: {
     legend: {
-      text: "Are you in a group (parent/subsidiary) relationship with any of the companies listed?",
+      text: "Are you in a group (parent/subsidiary) relationship with all of the companies listed?",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--m"
     }
@@ -78,7 +74,8 @@
         text: "Yes",
         conditional: {
         html: "<p>
-        you must upload permission from these companies that you are allowed to use the name MA LIMITED, you can do this on the next page.</p>
+       You must upload permission from these companies that you are allowed to use the name MA LIMITED, you can do this on the next page.</p>
+        <p>If the name you want is identical to the one that someone else has registered, you will have to try a different name.</p>
         "
         }
         },
