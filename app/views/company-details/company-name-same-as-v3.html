@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Someone else has already chosen this company name
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Someone else has already chosen this company name</h1>
+
+      <form class="form" action="registered-office" method="get">
+
+        {{ govukInsetText({
+          text: "You will have to try a different name if you are not part of the same group of companies, or if the name you want is identical to the one already registered."
+        }) }}
+
+        {{ govukTable({
+  firstCellIsHeader: false,
+
+  rows: [
+    [
+      {
+        text: "You wanted"
+      },
+      {
+        text: "MA LIMITED"
+      }
+    ],
+    [
+      {
+        text: "Someone else has registered"
+      },
+      {
+        html: "MA & CO LIMITED<br>MA (UK) LTD"
+      }
+    ]
+  ]
+}) }}
+
+        <h2 class="govuk-heading-s">You can only use this name if all of the following apply:</h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the company you are setting up will be in a parent/subsidary (group) relationship with MA & CO LIMITED and MA (UK) LTD</li>
+          <li>you can upload permission from these companies to confirm you will be in a parent/subsidery (group) relationship and allowed to use the name MA LIMITED</li>
+          <li>it is not identical to any of the names shown</li>
+        </ul>
+
+        {{ govukRadios({
+  idPrefix: "want-to-do",
+  name: "want-to-do",
+  fieldset: {
+    legend: {
+      text: "Will MA LIMITED be in a parent/subsidery (group) relationship with all the companies listed?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  items: [
+    {
+      value: "no",
+      text: "No, I will try a different name"
+    },
+    {
+      value: "yes",
+      text: "Yes"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
