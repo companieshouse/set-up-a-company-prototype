@@ -15,7 +15,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Someone else has registered a similar company name</h1>
+      <h1 class="govuk-heading-xl">Someone has registered a similar company name</h1>
+
+      {{ govukDetails({
+        summaryText: "Why are these names considered to be similar?",
+        html: "<p>In line with the law, we remove spaces, certain punctuation, characters, words and letters from the suggested company name. When they are removed, it is compared with existing company names.</p><p>If similar names exist (in the eyes of the law), we need to make additional checks to see if the new name is allowed to be registered.</p>"
+      }) }}
+
       <form class="form" action="registered-office" method="get">
 
         {{ govukTable({
@@ -86,7 +92,14 @@
         value: "no",
         text: "No",
         conditional: {
-        html: chooseAnotherHtml
+        html: "  <span id='new-name-hint' class='govuk-hint'>
+    MA LIMITED would be considered to be part of a group of companies. As you are not part of the group, you cannot use that name.
+  </span><div class='govuk-form-group'>
+  <label class='govuk-label' for='width-10'>
+    Please choose a different company name
+  </label>
+  <input class='govuk-input govuk-input--width-10' id='width-10' name='width-10' type='text'>
+</div>"
       }
         }
         ]

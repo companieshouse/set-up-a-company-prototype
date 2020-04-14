@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Give us one or more ways to contact *company name*
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Payment is required</h1>
+      <form class="form" action="company-name" method="get">
+
+        <table class="govuk-table">
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+
+              <th scope="col" class="govuk-table__header">Document uploaded</th>
+              <th scope="col" class="govuk-table__header">Payment required</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+                <a target="_blank" href="public/upload/SH06.pdf">SH06 document.pdf</a>
+              </td>
+              <td class="govuk-table__cell">£10</td>
+
+            </tr>
+
+          </tbody>
+        </table>
+        <p>You need to use a seperate service to pay for the document and then return to this page with a reference.</p>
+        <h2 class="govuk-heading-m">Steps to make the payment</h2>
+        <ol class="govuk-list govuk-list--number">
+          <li>
+            <a href="">Pay for the document (link opens in a new tab)</a>
+          </li>
+          <li>Make a note of the payment reference. This will be displayed on the payment confirmation page
+          </li>
+          <li>Return to this page and enter the payment reference. This will help us match your payment to this document.</li>
+        </ol>
+
+        {{ govukInput({
+  label: {
+    text: "Payment reference"
+  },
+  classes: "govuk-input--width-10",
+  id: "width-10",
+  name: "width-10"
+}) }}
+
+        {{ govukButton({
+          text: "Submit document"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
