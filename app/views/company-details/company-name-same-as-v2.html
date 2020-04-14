@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Someone else has registered a similar company name
+  Someone has already registered this company name
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,10 +15,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Someone has registered a similar company name</h1>
+      <h1 class="govuk-heading-xl">Someone has already registered this company name
+      </h1>
 
       {{ govukDetails({
-        summaryText: "Why are these names considered to be similar?",
+        summaryText: "Why are these names considered to be the same?",
         html: "<p>In line with the law, we remove spaces, certain punctuation, characters, words and letters from the company name you want.</p> <p>Then, it is compared with existing company names.</p>"
       }) }}
 
@@ -46,26 +47,6 @@
     ]
   ]
 }) }}
-
-        {% set chooseAnotherHtml %}
-        {{ govukInput({
-  id: "choose-another",
-  name: "choose-another",
-  type: "text",
-  classes: "govuk-!-width-one-half",
-  label: {
-    text: "Please choose a different company name"
-  },
-    hint: {
-      text: "MA LIMITED would be considered to be part of a group of companies. As you are not part of the group, you cannot use that name."
-    },
-
-
-  attributes: {
-    spellcheck: "false"
-  }
-}) }}
-        {% endset -%}
 
         {{ govukRadios({
   idPrefix: "want-to-do",
