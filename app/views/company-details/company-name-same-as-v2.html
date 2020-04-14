@@ -16,7 +16,6 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">Someone else has registered a similar company name</h1>
-
       <form class="form" action="registered-office" method="get">
 
         {{ govukTable({
@@ -51,6 +50,11 @@
   label: {
     text: "Please choose a different company name"
   },
+    hint: {
+      text: "MA LIMITED would be considered to be part of a group of companies. As you are not part of the group, you cannot use that name."
+    },
+
+
   attributes: {
     spellcheck: "false"
   }
@@ -66,8 +70,7 @@
       isPageHeading: false,
       classes: "govuk-fieldset__legend--m"
     }
-  },
-
+    },
         items: [
         {
         value: "yes",
