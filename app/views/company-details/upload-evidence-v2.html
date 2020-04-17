@@ -14,27 +14,31 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload evidence that you can use MA LIMITED</h1>
-      <p>
-        <strong>Evidence needed</strong>
-      </p>
-      <p>Each company must confirm you are in a parent/subsidiary relationship and have their permission to use the name.</p>
+      <h1 class="govuk-heading-l">Upload evidence to prove that you can use the name MA LIMITED</h1>
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
+      {{ govukWarningText({
+        text: "Each company must confirm you are in a parent/subsidiary relationship and you have their permission to use the name.",
+        iconFallbackText: "Warning"
+      }) }}
       <p class="govuk-body">Evidence is needed from the following companies:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>MA & CO LIMITED</li>
         <li>MA (UK) LTD</li>
       </ul>
-      <h2 class="govuk-heading-m">What happens with the evidence?</h2>
-      <p>The evidence you provide will be reviewed as part of this application within 1-2 working days.</p>
-      <p>The evidence you provide won't appear on the public record.</p>
+      <h2 class="govuk-heading-m">How will the evidence be used?</h2>
+      <p>The evidence you upload will be reviewed as part of this application.</p>
+      <p>The evidence you upload will not appear on the public record.</p>
       <form class="form" action="company-name" method="get">
         <h2 class="govuk-heading-m">Upload evidence</h2>
         {{ govukFileUpload({
           id: "file-upload-1",
           name: "file-upload-1",
+          hint:{
+            text: "You can only upload one PDF document"
+          },
           label: {
-            text: "Upload a file"
+            text: "Upload a PDF"
           }
         }) }}
         <p>
