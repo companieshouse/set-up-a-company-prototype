@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  You're about to set up the company shareholders
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">You're about to set up the company shareholders</h1>
+      <p>We will only do this is we have questions about the company's Corporation Tax.</p>
+      <form class="form" action="company-name" method="get">
+
+        <p class="govuk-body">We'll ask you to:</p>
+
+        <ol class="govuk-list govuk-list--number">
+          <li>Tell us who the company's shareholders are.</li>
+          <li>Tell us how many shares you want to give.</li>
+          <li>Choose a value for each share.</li>
+          <li>Confirm the shareholders and shares you've created.</li>
+        </ol>
+
+        {{ govukInsetText({
+          html: "<p>The company must have at least one shareholder.</p>Each shareholder must have at least one share<p>"
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What is a shareholder?",
+          text: "Shareholders are the company owners. They own shares in the company, which entitle them to a share of the company profits. Most shareholders also have a say in important company issues, like appointing new directors."
+        }) }}
+
+        <p class="govuk-body">You can change the shareholders and their shares at any time after the company is registered by contacting Companies House.</p>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
