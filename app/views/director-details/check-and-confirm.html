@@ -27,7 +27,7 @@
 
       <form class="form" action="/shareholder-details/company-shareholder-intro" method="get">
 
-        <h2 class="govuk-heading-m">*Director name*</h2>
+        <h2 class="govuk-heading-m">Sarah Philips</h2>
         <p>
           <a href="Remove director">Remove director</a>
         </p>
@@ -122,7 +122,7 @@
                 },
                 {
                   key: {
-                    text: "What is the correspondence address for *director name*"
+                    text: "What is the correspondence address for Sarah Philips"
                   },
                   value: {
                     text: "The correspondence address is the same as the company's registered office"
@@ -139,7 +139,7 @@
                 },
                 {
                   key: {
-                    text: "What is the home address for *director name*"
+                    text: "What is the home address for Sarah Philips"
                   },
                   value: {
                     html: "70 Wentloog Road<br>Rumney<br>Cardiff<br>Wales<br>CF3 3EA"
@@ -156,7 +156,7 @@
                 },
                 {
                   key: {
-                    text: "Which email address does *director name* want to use to receive filing reminders?"
+                    text: "Which email address does Sarah Philips want to use to receive filing reminders?"
                   },
                   value: {
                     text: "contact@gmail.com"
@@ -177,7 +177,6 @@
         <p>
           <a href="Add director">Add a director or secretary</a>
         </p>
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
         {{ govukCheckboxes({
         idPrefix: "confirm",
@@ -192,7 +191,7 @@
         items: [
           {
             value: "confirm",
-            text: "I confirm that *director name* lives at 70 Wentloog Road, Rumney, Cardiff, Wales, CF3 3EA"
+            text: "I confirm that Sarah Philips lives at 70 Wentloog Road, Rumney, Cardiff, Wales, CF3 3EA"
           }
         ]
       }) }}
