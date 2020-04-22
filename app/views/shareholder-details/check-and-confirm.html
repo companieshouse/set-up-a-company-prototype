@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check and confirm shreholder details
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+  <style >
+    .govuk-summary-list__key {
+      width: 50%;
+      !important;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Check and confirm shreholder details</h1>
+
+      {{ govukInsetText({
+        text: "Each shareholders name and address will appear on the public record and be available online."
+      }) }}
+
+      <form class="form" action="/shareholder-details/company-shareholder-intro" method="get">
+
+        <h2 class="govuk-heading-m">*Director name*</h2>
+        <p>
+          <a href="Remove director">Remove shareholder</a>
+        </p>
+
+        {{ govukSummaryList({
+              classes: 'govuk-!-margin-bottom-9',
+              rows: [
+                {
+                  key: {
+                    text: "What is the shareholder's name?"
+                  },
+                  value: {
+                    text: "Sarah Philips"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "What is the address for *director name*"
+                  },
+                  value: {
+                    html: "70 Wentloog Road<br>Rumney<br>Cardiff<br>Wales<br>CF3 3EA"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "contact details"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }) }}
+
+        <p>
+          <a href="Add-shareholder">Add another shareholder</a>
+        </p>
+
+        {{ govukButton({
+        text: "Confirm and continue"
+      }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

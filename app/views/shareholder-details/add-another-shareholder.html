@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Is *director name* a shareholder?
+  Would you like to add another shareholder?
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,14 +14,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Is *director name* a shareholder?</h1>
+      <h1 class="govuk-heading-l">Would you like to add another shareholder?</h1>
 
-      <form class="form" action="add-another-shareholder" method="get">
-
-        {{ govukDetails({
-          summaryText: "What is a shareholder?",
-          text: "Shareholders  own one or more shares in the company. They get a share of the company profits through dividends. They  also have a say in important company issues, like appointing new directors."
-        }) }}
+      <form class="form" action="check-and-confirm" method="get">
 
         {{ govukRadios({
   classes: "govuk-radios--inline",
