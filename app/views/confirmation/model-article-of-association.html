@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Model articles of association
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the CSS here, it's not correct, but it means the attacment is displayed correctly for user testing -->
+
+  <style>
+    .attachment .attachment-thumb {
+      position: relative;
+      float: left;
+      margin-top: 5px;
+
+      padding-bottom: 15px;
+    }
+
+    fieldset.govuk-fieldset {
+      clear: left;
+    }
+
+    .attachment .attachment-thumb img {
+      height: 65px;
+      outline: 5px solid rgba(11,12,12,0.1);
+      box-shadow: 0 2px 2px rgba(11,12,12,0.4);
+      margin-right: 20px;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Model articles of association</h1>
+      <p>All limited companies must have articles of association. These are rules for directors and shareholders about how to run the company.</p>
+      <p>Model articles are a standard set of rules that have been written to suit most companies.</p>
+      <form class="form" action="company-name" method="get">
+        <!-- <div class="attachment"> <img alt="" style="float: left;" src="/public/images/html-placeholder.png"> <p> Model articles of association</p> <p> <a href="">View HTML </a> </p> </div>-->
+
+        <section class="attachment embedded" id="attachment_2157894">
+          <div class="attachment-thumb">
+            <a aria-hidden="true" class="thumbnail" tabindex="-1" href=""><img alt="" src="/public/images/html-placeholder.png"></a>
+          </div>
+          <div class="attachment-details">
+            <p>
+              Model articles of association</p>
+            <p>
+              <a href="">View HTML
+              </a>
+            </p>
+
+          </div>
+        </section>
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "changed-name",
+          name: "changed-name",
+          fieldset: {
+            legend: {
+              text: "Do you want to use model articles?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
