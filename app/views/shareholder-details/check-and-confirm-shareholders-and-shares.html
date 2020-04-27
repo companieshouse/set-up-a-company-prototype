@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check and confirm shareholders and shares
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+  <style >
+    .govuk-summary-list__key {
+      width: 50%;
+      !important;
+    }
+    .govuk-summary-list {
+      margin-bottom: 20px!important;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Check and confirm shareholders and shares</h1>
+
+      <form class="form" action="" method="get">
+
+        <h2 class="govuk-heading-m">Shareholders</h2>
+
+        {{ govukSummaryList({
+              classes: 'govuk-!-margin-bottom-9',
+              rows: [
+                {
+                  key: {
+                    text: "How many shares does Sarah Phillips own?"
+                  },
+                  value: {
+                    text: "1"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }) }}
+        <p>
+          <a href="Edit">Edit or remove shareholders</a>
+        </p>
+
+        {{ govukSummaryList({
+                  classes: 'govuk-!-margin-bottom-9',
+                  rows: [
+                    {
+                      key: {
+                        text: "Share value"
+                      },
+                      value: {
+                        text: "£1.00"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }) }}
+        <p>
+          <a href="Add-sharetype">Add another share type with different value</a>
+        </p>
+
+        {{ govukInsetText({
+                text: "We'll assume that each shareholder has paid the value of their shares to the company. If they haven't, they'll need to do so."
+              }) }}
+
+        <h2 class="govuk-heading-s">You're about to set up the company shareholders</h2>
+
+        <p class="govuk-body">The company has a total of 1 ordinary share(s) with a total value of £1.00 in British pounds.</p>
+
+        <p class="govuk-body">They give shareholders full rights to:</p>
+
+        <ul class="govuk-list govuk-list--number">
+          <li>vote on company issues in gerneral meetings ('voting rights')</li>
+          <li>receive dividends payments ('dividend rights')</li>
+          <li>receive capital or assets if the company closes down ('participation rights')</li>
+
+        </ul>
+
+        {{ govukButton({
+        text: "Confirm and continue"
+      }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
