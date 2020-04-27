@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  You're about to set up the 'Persons with Significant Control' over the company
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">You're about to set up the 'Persons with Significant Control' over the company</h1>
+      <form class="form" action="company-name" method="get">
+        <p>Based on the shareholder information you've already given, we know some information about the company's PSCs. We'll guide you through the process of giving us the rest.</p>
+
+        {{ govukInsetText({
+                text: "If none of the shareholders in the company own more than 25% of its shares, he company may not have a PSC. You'll still need to confirm this."
+              }) }}
+        <h2 class="govuk-heading-m">What is a person with significant control?</h2>
+
+        <p class="govuk-body">A person with Significant Control (PSC) is an individual or company that has at least one of the following:</p>
+
+        <ul class="govuk-list govuk-list--number">
+          <li>more than 25% of the company's shares and voting rights</li>
+          <li>the right to appoint or remove directors</li>
+          <li>the right to make decisions or influence decisions that affect the company</li>
+
+        </ul>
+
+        {{ govukDetails({
+  summaryText: "Show me an example",
+  text: "If two shareholders each own half of the company, they are both in control of the company because they both own more than 25% of shares."
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
