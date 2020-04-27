@@ -1,0 +1,247 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check and confirm details of the persons in control of MA LIMITED
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+  <style >
+    .govuk-summary-list__key {
+      width: 50%;
+      !important;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Check and confirm details of the persons in control of MA LIMITED</h1>
+
+      {{ govukInsetText({
+        text: "Details about the persons in control of a company will appear on the public record except for the full date of birth and home address."
+      }) }}
+      <p>Where the director, shareholder and Person with Significant control are the same, we've reused information you entered previously.</p>
+
+      <form class="form" action="/shareholder-details/company-shareholder-intro" method="get">
+
+        <h2 class="govuk-heading-m">Sarah Philips</h2>
+        <p>
+          <a href="Remove-PSC">Remove Person with Significant Control</a>
+        </p>
+
+        {{ govukSummaryList({
+              classes: 'govuk-!-margin-bottom-9',
+              rows: [
+                {
+                  key: {
+                    text: "Name"
+                  },
+                  value: {
+                    text: "Sarah Philips"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "Date of birth"
+                  },
+                  value: {
+                    text: "5 January 1978"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "date of birth"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "Country the person lives in"
+                  },
+                  value: {
+                    text: "United Kingdom"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "address"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "Nationality"
+                  },
+                  value: {
+                    text: 'British'
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "contact details"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "What is the correspondence address for Sarah Philips"
+                  },
+                  value: {
+                    text: "The correspondence address is the same as the company's registered office"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "contact details"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "What is the home address for Sarah Philips"
+                  },
+                  value: {
+                    html: "70 Wentloog Road<br>Rumney<br>Cardiff<br>Wales<br>CF3 3EA"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "contact details"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "As an individual, what percentage of voting rights does Sarah Phillips own?"
+                  },
+                  value: {
+                    text: "The person holds, directly or indirectly, more than 75% of the voting rights in the company."
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "contact details"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "As an individual, what percentage of shares does Sarah Phillips own?"
+                  },
+                  value: {
+                    text: "The person holds, directly or indirectly, more than 75% of the shares in the company."
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "contact details"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "As an individual, does Sarah Phillips have the right to appoint or remove directors?"
+                  },
+                  value: {
+                    text: "The person holds the right, directly or indirectly, to appoint or remove a majority if the board of directors of a company."
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "contact details"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }) }}
+
+        <p>
+          <a href="Add director">Add a director or secretary</a>
+        </p>
+
+        {{ govukCheckboxes({
+        idPrefix: "confirm",
+        name: "confirm",
+        fieldset: {
+          legend: {
+            text: "Confirm where persons in control live",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "confirm",
+            text: "I confirm that Sarah Philips lives at 70 Wentloog Road, Rumney, Cardiff, Wales, CF3 3EA"
+          }
+        ]
+      }) }}
+
+        {{ govukCheckboxes({
+        idPrefix: "agree",
+        name: "agree",
+        fieldset: {
+          legend: {
+            text: "Confirm control of the company",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "agree",
+            text: "I confirm that the persons named here are in control of MA LIMITED. They understand that their information will be listed in their public record."
+          }
+        ]
+      }) }}
+
+        {{ govukDetails({
+  summaryText: "What legal statement will appear on this company application?",
+  html: "<p>'On incorporation, there will be someone who will count as a registrable person with significant control in relation to the company.'</p><p>The subscribrs confirm that each person named as a person with significant control in this application knows that their particulars are being supplied as part of this application.'</p>"
+}) }}
+
+        {{ govukButton({
+        text: "Save and continue"
+      }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
