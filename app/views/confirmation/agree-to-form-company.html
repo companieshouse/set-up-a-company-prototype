@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Do you agree to form the company?
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the CSS here, it's not correct, but it means the attacment is displayed correctly for user testing -->
+
+  <style>
+    .attachment .attachment-thumb {
+      position: relative;
+      float: left;
+      margin-top: 5px;
+
+      padding-bottom: 15px;
+    }
+
+    fieldset.govuk-fieldset {
+      clear: left;
+    }
+
+    .attachment .attachment-thumb img {
+      height: 65px;
+      outline: 5px solid rgba(11,12,12,0.1);
+      box-shadow: 0 2px 2px rgba(11,12,12,0.4);
+      margin-right: 20px;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Do you agree to form the company?</h1>
+      <p>Shareholders (subscribers) must agree to form the company. This is done in the form of a legal statement called memorandum of association. You'll be sent the official version by email once registered.</p>
+      <form class="form" action="" method="get">
+
+        <section class="attachment embedded" id="attachment_2157894">
+          <div class="attachment-thumb">
+            <a aria-hidden="true" class="thumbnail" tabindex="-1" href=""><img alt="" src="/public/images/html-placeholder.png"></a>
+          </div>
+          <div class="attachment-details">
+            <p>
+              <a href="">Memorandum of association (link opens in a new tab)
+              </a>
+            </p>
+
+          </div>
+        </section>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Company name</th>
+              <th scope="col" class="govuk-table__header" style="
+    font-weight: normal;">MA LIMITED</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Shareholder (subscriber) name</th>
+              <td class="govuk-table__cell">Sarah Phillips</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {{ govukCheckboxes({
+          idPrefix: "citizenship-conditional",
+          name: "citizen",
+          fieldset: {
+            legend: {
+              text: " ",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "confirm",
+              text: "I confirm that the persons named here agree to form the company stated in the memorandum of association, in accordance with the law."
+            }
+          ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What legal statement will appear on this company application?",
+          text: "'I confirm the requirements of the Companies House Act 2006 as to registration have been complied with'."
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
