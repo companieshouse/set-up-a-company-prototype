@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Create electronic signature for Sarah Phillips
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Create electronic signature for Sarah Phillips</h1>
+
+      <form class="form" action="check-and-confirm-1" method="get">
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Company name</th>
+              <th scope="col" class="govuk-table__header" style="
+    font-weight: normal;">MA LIMITED</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Shareholder/subscriber</th>
+              <td class="govuk-table__cell">Sarah Phillips</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>This personal information is taken instead of a real signature and is used to confirm that this application complies with the law. It won't be placed on the public record.</p>
+
+        {% set townHtml %}
+        {{ govukInput({
+          id: "town",
+          name: "town",
+          type: "text",
+  classes: "govuk-input--width-3",
+          label: {
+            text: "Enter town of birth (first 3 letters only)"
+          },
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        {% endset -%}
+
+        {% set motherHtml %}
+        {{ govukInput({
+          id: "mother-name",
+          name: "mother-name",
+          type: "text",
+  classes: "govuk-input--width-3",
+          label: {
+            text: "Enter mother's maiden name (first 3 letters only)"
+          }
+        }) }}
+        {% endset -%}
+
+        {% set fatherHtml %}
+        {{ govukInput({
+          id: "father-name",
+          name: "father-name",
+          type: "text",
+    classes: "govuk-input--width-3",
+          label: {
+            text: "Enter father's first name (first 3 letters only)"
+          }
+        }) }}
+        {% endset -%}
+
+        {% set textHtml %}
+        {{ govukInput({
+          id: "misc",
+          name: "misc",
+          type: "text",
+    classes: "govuk-input--width-3",
+          label: {
+            text: "Enter details"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          idPrefix: "personal-info-conditional",
+          name: "signature",
+          fieldset: {
+            legend: {
+              text: "Choose 3 pieces of personal information for:",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "town",
+              text: "Town of birth",
+              conditional: {
+                html: townHtml
+              }
+            },
+            {
+              value: "mothers-name",
+              text: "Mother's maiden name",
+              conditional: {
+                html: motherHtml
+              }
+            },
+            {
+              value: "text message",
+              text: "Father's first name",
+              conditional: {
+                html: fatherHtml
+              }
+            },
+            {
+              value: "text message",
+              text: "Telephone number",
+              conditional: {
+                html: textHtml
+              }
+            },
+            {
+              value: "text message",
+              text: "National Insurance number",
+              conditional: {
+                html: textHtml
+              }
+            },
+            {
+              value: "text message",
+              text: "Passport number",
+              conditional: {
+                html: textHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
