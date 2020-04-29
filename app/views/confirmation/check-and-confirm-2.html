@@ -1,0 +1,470 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check and confirm your answers
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+  <style >
+    .govuk-summary-list__key {
+      width: 50%;
+      !important;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Check and confirm your answers</h1>
+
+      <form class="form" action="check-and-confirm-2" method="get">
+        <p>Page 2 or 2</p>
+        <h2 class="govuk-heading-m">Company business activity</h2>
+
+        {{ govukSummaryList({
+              classes: 'govuk-!-margin-bottom-9',
+              rows: [
+                {
+                  key: {
+                    text: "What are the company's business activities?"
+                  },
+                  value: {
+                    html: "<li>Manufacture of motor vehicles</li>"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
+                  }
+                }
+
+              ]
+            }) }}
+        <h2 class="govuk-heading-m">Director</h2>
+        {{ govukSummaryList({
+                  classes: 'govuk-!-margin-bottom-9',
+                  rows: [
+                    {
+                      key: {
+                        text: "What is the director's name?"
+                      },
+                      value: {
+                        text: "Sarah Philips"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "date of birth"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the director's date of birth?"
+                      },
+                      value: {
+                        html: "10 December 1982"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the director's nationality?"
+                      },
+                      value: {
+                        text: "British"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the director's job title?"
+                      },
+                      value: {
+                        text: "Registered Office Address"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the director's correspondence address?"
+                      },
+                      value: {
+                        text: "The correspondence address is same as the company's registered office"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the director's correspondence address?"
+                      },value: {
+                        html: "70 Wentloog Road<br>Rumney<br>Cardiff<br>Wales<br>CF3 3EA"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    }
+                    ,
+                    {
+                      key: {
+                        text: "What is the director's country of residence?"
+                      },value: {
+                        text: "United Kingdom"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },  {
+                        key: {
+                          text: "Which email address does Sarah Philips want to use to receive email reminders?"
+                        },
+                        value: {
+                          html: "sarahPhilips@gmail.com"
+                        },
+                        actions: {
+                          items: [
+                            {
+                              href: "#",
+                              text: "Change",
+                              visuallyHiddenText: "date of birth"
+                            }
+                          ]
+                        }
+
+                      }
+                  ]
+                }) }}
+        <h2 class="govuk-heading-m">Shareholders and shares</h2>
+        {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                  {
+                    key: {
+                      text: "What is the shareholder's name?"
+                    },
+                    value: {
+                      html: "Sarah Philips"
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "date of birth"
+                        }
+                      ]
+                    }
+
+                  },
+                  {
+                    key: {
+                      text: "What is the shareholder's address?"
+                    },value: {
+                      html: "70 Wentloog Road<br>Rumney<br>Cardiff<br>Wales<br>CF3 3EA"
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "contact details"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "How many shares does Sarah Philips own?"
+                    },value: {
+                      text: "1"
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "contact details"
+                        }
+                      ]
+                    }
+                  }
+                ]
+                }) }}
+
+        <h2 class="govuk-heading-m">Company share</h2>
+        {{ govukSummaryList({
+                        classes: 'govuk-!-margin-bottom-9',
+                        rows: [
+                          {
+                            key: {
+                              text: "What is the value of each share?"
+                            },
+                            value: {
+                              text: "1.00"
+                            },
+                            actions: {
+                              items: [
+                                {
+                                  href: "#",
+                                  text: "Change",
+                                  visuallyHiddenText: "date of birth"
+                                }
+                              ]
+                            }
+
+                          }
+                        ]
+                        }) }}
+
+        <p>
+          The company has a total of 1 Ordinary share(s) with a total value of £1.00 in British pounds
+        </p>
+        <p>We'll assume that each shareholder has paid the value of their shares to the company. If they haven't, they'll need to do so.</p>
+
+        <h2 class="govuk-heading-m">Persons in control of the company</h2>
+        {{ govukSummaryList({
+                  classes: 'govuk-!-margin-bottom-9',
+                  rows: [
+                    {
+                      key: {
+                        text: "What is the name of the person in control of the company?"
+                      },
+                      value: {
+                        text: "Sarah Philips"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "date of birth"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the person's date of birth?"
+                      },
+                      value: {
+                        html: "10 December 1982"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the person's nationality?"
+                      },
+                      value: {
+                        text: "British"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the person's correspondence address?"
+                      },
+                      value: {
+                          html: "70 Wentloog Road<br>Rumney<br>Cardiff<br>Wales<br>CF3 3EA"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      key: {
+                        text: "What is the person's home address?"
+                      },value: {
+                        html: "70 Wentloog Road<br>Rumney<br>Cardiff<br>Wales<br>CF3 3EA"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    }
+                    ,
+                    {
+                      key: {
+                        text: "What is the person's country of residence?"
+                      },value: {
+                        text: "United Kingdom"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact details"
+                          }
+                        ]
+                      }
+                    },  {
+                        key: {
+                          text: "As an individual, what percentage of shares does Sarah Philips own?"
+                        },
+                        value: {
+                          text: "75% or more shares"
+                        },
+                        actions: {
+                          items: [
+                            {
+                              href: "#",
+                              text: "Change",
+                              visuallyHiddenText: "date of birth"
+                            }
+                          ]
+                        }
+
+                      },  {
+                          key: {
+                            text: "As an individual, what percentage of voting rights does Sarah Philips own?"
+                          },
+                          value: {
+                            text: "75% or more voting rights"
+                          },
+                          actions: {
+                            items: [
+                              {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "date of birth"
+                              }
+                            ]
+                          }
+
+                        },  {
+                            key: {
+                              text: "As an individual, does Sarah Philips have the right to appoint or remove directors?"
+                            },
+                            value: {
+                              text: "Yes"
+                            },
+                            actions: {
+                              items: [
+                                {
+                                  href: "#",
+                                  text: "Change",
+                                  visuallyHiddenText: "date of birth"
+                                }
+                              ]
+                            }
+
+                          }
+                  ]
+                }) }}
+        <p class="govuk-body">You're answers show that the person has the following controls over the company':</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>The person holds, directly or indirectly, more than 75% of the shares in the company.</li>
+          <li>The person holds, directly or indirectly, more than 75% of the voting rights in the company.</li>
+          <li>The person holds the right, directly or indirectly, to appoint or remove a majority of the board of directors of the company.</li>
+        </ul>
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          idPrefix: "understand",
+          name: "understand",
+          fieldset: {
+            legend: {
+              text: "Now send your application",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "carcasses",
+              text: "I understand that this registration application can't be changed after I proceed"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+        text: "Confirm and send application"
+      }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
