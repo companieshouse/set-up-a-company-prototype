@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Check and confirm your answers</h1>
 
-      <form class="form" action="check-and-confirm-2" method="get">
+      <form class="form" action="you're-about-to-pay" method="get">
         <p>Page 2 or 2</p>
         <h2 class="govuk-heading-m">Company business activity</h2>
 
@@ -440,7 +440,6 @@
           <li>The person holds, directly or indirectly, more than 75% of the voting rights in the company.</li>
           <li>The person holds the right, directly or indirectly, to appoint or remove a majority of the board of directors of the company.</li>
         </ul>
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
         {{ govukCheckboxes({
           idPrefix: "understand",

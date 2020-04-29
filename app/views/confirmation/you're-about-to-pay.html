@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  You're about to make a secure payment of £12
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        You're about to make a secure payment of £12</h1>
+
+      <form class="form" action="company-name" method="get">
+        <p class="govuk-body">Before you pay, make a note of this Companies House submission number:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>065-982009</li>
+        </ul>
+
+        <p>You'll need to quote this if there's a problem with your application. We'll also email it to you.</p>
+
+        {{ govukInsetText({
+          text: "If we reject your application, we'll refund you."
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "Not ready to make a payment?",
+          text: "You can pay anytime in the next 30 days. Sign back in to the service from the 'Register your company' guide on GOV.UK."
+        }) }}
+
+        {{ govukButton({
+          text: "Make payment"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
