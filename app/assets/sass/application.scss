@@ -18,3 +18,34 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+.chs-search__button {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 10px;
+  position: relative;
+  top: -2px;
+  vertical-align: bottom;
+  width: auto;
+}
+
+.chs-search form {
+  align-items: flex-end;
+  display: flex;
+}
+
+.chs-search .govuk-form-group {
+  display: inline-block;
+  flex: 1;
+  margin-bottom: 0;
+  vertical-align: top;
+}
+
+element.style {}
+
+.govuk-header__content {
+  text-align: right;
+}
+
+.chs-search {
+  padding-bottom: 20px;
+}
