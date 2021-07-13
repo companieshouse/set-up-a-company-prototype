@@ -92,36 +92,51 @@
         </a>granted by the Corporate Insolvency and Governance Act has ended for filing deadlines that occur after 5 April 2021. Eligible companies can still aply for accounts filing deadline extension if their deadline is after 5 April.</p>
     </div>
   </div>
-<div class="govuk-width-container">
+  <div class="govuk-width-container">
+
   <div class="gem-c-feedback govuk-!-display-none-print" data-module="feedback">
 
-  <div class="gem-c-feedback__prompt gem-c-feedback__js-show js-prompt" tabindex="-1">
-    <div class="gem-c-feedback__prompt-questions js-prompt-questions">
-      <h2 class="gem-c-feedback__prompt-question">Is this page useful?</h2>
+    <form action="CHS-homepage" id="something-is-wrong" class="gem-c-feedback__form js-feedback-form" data-track-category="Onsite Feedback" data-track-action="GOV.UK Send Form" method="post" aria-hidden="false">
+    <button class="govuk-button govuk-button--secondary gem-c-feedback__close gem-c-feedback__js-show js-close-form" data-track-category="Onsite Feedback" data-track-action="GOV.UK Close Form" aria-controls="something-is-wrong" aria-expanded="true">
+      Close
+    </button>
 
-      <ul class="gem-c-feedback__option-list">
-        <li class="gem-c-feedback__option-list-item">
-          <button class="govuk-button gem-c-feedback__prompt-link js-page-is-useful" data-track-category="yesNoFeedbackForm" data-track-action="ffYesClick">
-            Yes <span class="govuk-visually-hidden">this page is useful</span>
-          </button>
-        </li>
-        <li class="gem-c-feedback__option-list-item">
-          <button class="govuk-button gem-c-feedback__prompt-link js-toggle-form js-page-is-not-useful" data-track-category="yesNoFeedbackForm" data-track-action="ffNoClick" aria-controls="page-is-not-useful" aria-expanded="false">
-            No <span class="govuk-visually-hidden">this page is not useful</span>
-          </button>
-        </li>
-      </ul>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="gem-c-feedback__error-summary gem-c-feedback__js-show js-hidden js-errors" tabindex="-1"></div>
+
+        <input type="hidden" name="url" value="https://www.gov.uk/government/organisations/government-digital-service">
+
+        <h2 class="govuk-heading-m">Help us improve GOV.UK</h3>
+        <p id="feedback_explanation" class="gem-c-feedback__form-paragraph">Don’t include personal or financial information like your National Insurance number or credit card details.</p>
+
+
+  <div class="govuk-form-group">
+
+
+    <label for="input-472677f2" class="gem-c-label govuk-label">What were you doing?</label>
+      <input name="what_doing" class="gem-c-input govuk-input" id="input-472677f2" type="text" aria-describedby="feedback_explanation">
+  </div>
+
+
+  <div class="govuk-form-group">
+
+
+    <label for="input-36851d64" class="gem-c-label govuk-label">What went wrong?</label>
+      <input name="what_wrong" class="gem-c-input govuk-input" id="input-36851d64" type="text">
+  </div>
+
+
+
+
+    <button class="gem-c-button govuk-button" type="submit">Send</button>
+
+
+      </div>
     </div>
-    <div class="gem-c-feedback__prompt-questions gem-c-feedback__prompt-questions--something-is-wrong js-prompt-questions">
-
-      <a href="CHS-homepage-feedback" role="button" draggable="false" class="govuk-button gem-c-feedback__prompt-link js-toggle-form js-something-is-wrong" data-module="govuk-button">
-Report a problem with this page
-</a>
-
-
-    </div>
-  </div>
+  <input type="hidden" name="javascript_enabled" value="true"><input type="hidden" name="referrer" value="https://www.google.com/"></form>
 
   </div>
-  </div>
+
+        </div>
 {% endblock %}
