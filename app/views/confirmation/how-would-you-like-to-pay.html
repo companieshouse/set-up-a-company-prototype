@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  How do you want to pay
+  How do you want to pay the £12 incorporation fee
 {% endblock %}
 
 {% block beforeContent %}
@@ -26,14 +26,12 @@
         <p>You'll need to quote this if there's a problem with your application. We'll also email it to you.</p>
 
         {% endset -%}
-
-
 {{ govukRadios({
   idPrefix: "payment-option",
   name: "payment-option",
   fieldset: {
     legend: {
-      text: "How do you want to pay £12?",
+      text: "How do you want to pay the £12 incorporation fee?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -59,7 +57,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Make payment"
+          text: "Continue to payment"
         }) }}
 
       </form>
