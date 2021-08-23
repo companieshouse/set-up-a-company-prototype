@@ -15,27 +15,58 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
-        You're about to make a secure payment of £12</h1>
+        How do you want to pay the £12 incorporation fee?</h1>
+        <div class="govuk-form-group">
 
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  Credit card
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                <label class="govuk-label govuk-radios__label" for="contact-2">
+                  PayPal
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-phone">
+                    <p>Before you pay, make a note of the following Companies House submission number:</p>
+
+                    <p><strong>065 982 009</strong></p>
+                        <p>You'll need to quote this if you need to contact us about your application. We'll also email it to you after you've paid the fee.</p>
+                  </label>
+                  </div>
+
+
+
+              </div>
+            </div>
+
+
+        </div>
       <form class="form" action="https://products.payments.service.gov.uk/pay/9d4087fb5929476b82fd7a941005b9ce">
-        <p class="govuk-body">Before you pay, make a note of this Companies House submission number:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>065-982009</li>
-        </ul>
 
-        <p>You'll need to quote this if there's a problem with your application. We'll also email it to you.</p>
-
-        {{ govukInsetText({
-          text: "If we reject your application, we'll refund you."
-        }) }}
-
-        {{ govukDetails({
-          summaryText: "Not ready to make a payment?",
-          text: "You can pay anytime in the next 30 days. Sign back in to the service from the 'Register your company' guide on GOV.UK."
-        }) }}
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              I'm not ready to pay the fee
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            You can pay anytime in the next 30 days. Sign back in to the service from the 'Register your company' guide on GOV.UK.
+          </div>
+        </details>
 
         {{ govukButton({
-          text: "Make payment"
+          text: "Continue to payment"
         }) }}
 
       </form>
