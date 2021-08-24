@@ -1,0 +1,103 @@
+{% extends "chs-layout.html" %}
+
+{% block pageTitle %}
+  Nature of business: Standard Industrial Classification (SIC) codes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="chs-search">
+
+        <form action="" method="get">
+
+          <div class="govuk-form-group">
+            <label class="govuk-label chs-search__label govuk-label--xl">
+              Nature of business: Standard Industrial Classification (SIC) codes
+            </label>
+
+            <div id="bill-hint" class="govuk-hint chs-search__hint ">
+              Enter your search term, for example "motor"
+            </div>
+
+            <input class="govuk-input chs-search__input " id="bill" name="bill" type="search" aria-describedby="bill-hint">
+          </div>
+
+          <button class="govuk-button chs-search__button " data-module="govuk-button">
+            Search
+          </button>
+
+
+
+        </form>
+      </div>
+      {{ govukSelect({
+        id: "sort",
+        name: "sort",
+        label: {
+          text: "Category"
+        },
+        items: [
+        {
+          value: "select",
+          text: "Select a category",
+          selected: true
+        },
+          {
+            value: "published",
+            text: "Agriculture, Forestry and Fishing"
+          },
+          {
+            value: "updated",
+            text: "Mining and Quarrying"
+          },
+          {
+            value: "views",
+            text: "Manufacturing"
+          },
+          {
+            value: "comments",
+            text: "Electricity, gas, steam and air conditioning supply"
+          }
+        ]
+      }) }}
+
+      {{ govukSelect({
+        id: "sort",
+        name: "sort",
+        label: {
+          text: "Sub-category"
+        },
+        items: [
+        {
+          value: "select",
+          text: "Select a sub category",
+          selected: true
+        },
+          {
+            value: "published",
+            text: "Production of electricity
+"
+          },
+          {
+            value: "updated",
+            text: "Transmission of electricity
+"
+          },
+          {
+            value: "views",
+            text: "Distribution of electricity
+"
+          },
+          {
+            value: "comments",
+            text: "	Trade of electricity"
+          }
+        ]
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

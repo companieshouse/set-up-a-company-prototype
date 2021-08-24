@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  How do you want to pay the £12 incorporation fee
+{% endblock %}
+{% set serviceName %}
+{% endset%}
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="https://products.payments.service.gov.uk/pay/9d4087fb5929476b82fd7a941005b9ce">
+
+{{ govukRadios({
+  idPrefix: "payment-option",
+  name: "payment-option",
+  fieldset: {
+    legend: {
+      text: "How do you want to pay?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+
+  items: [
+    {
+      value: "card",
+      text: "Credit or Debit Card"
+    },
+    {
+      value: "paypal",
+      text: "Paypal"
+    },
+    {
+      value: "account",
+      text: "Companies House Account"
+    }
+  ]
+}) }}
+
+
+        {{ govukButton({
+          text: "Continue to payment"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
