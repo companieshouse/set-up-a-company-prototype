@@ -2,7 +2,7 @@
 {% block header %}
   <header class="govuk-header govuk-header__container--no-border" role="banner" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
-      <div class="govuk-header__logo">
+      <div class="govuk-header__logo" style="width:23%;">
         <a href="/" class="govuk-header__link govuk-header__link--homepage">
           <span class="govuk-header__logotype">
             <svg role="presentation" focusable="false" class="govuk-header__logotype-crown" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 132 97" height="32" width="36">
@@ -18,7 +18,32 @@
           </span>
         </a>
       </div>
-        {% include "includes/sign-out-cymraeg.html" %}
+      <div class="govuk-header__content" style = "width:77%;">
+            <a href="/" class="govuk-header__link govuk-header__link--service-name" title="Go to the Companies House homepage" onclick="javascript:_paq.push(['trackEvent', 'CHLogo', 'Homepage']);" id="logo" style="float:left;">
+              Find and update company information
+            </a>
+
+          <button type="button" role="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation" aria-expanded="false">Menu</button>
+          <nav>
+            <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
+              <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="https://selfservice.payments.service.gov.uk/login">
+                  My account
+                </a>
+              </li>
+              <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="CHS-homepage">
+                  Sign out
+                </a>
+              </li>
+              <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="https://docs.payments.service.gov.uk">
+                  Cymraeg
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </div>
     </div>
   </header>
 {% endblock %}
