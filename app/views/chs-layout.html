@@ -52,7 +52,27 @@
           </span>
         </a>
       </div>
-        {% include "includes/sign-in-cymraeg.html" %}
+
+      <div class="govuk-header__content">
+            <a href="/" class="govuk-header__link govuk-header__link--service-name" title="Go to the Companies House homepage" onclick="javascript:_paq.push(['trackEvent', 'CHLogo', 'Homepage']);" id="logo" style="float:left;">
+              Find and update company information
+            </a>
+
+          <button type="button" role="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation" aria-expanded="false">Menu</button>
+          <nav>
+            <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
+              <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="CHS-homepage-signed-in">
+                  Sign in
+                </a>
+              </li>
+              <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="">
+                  Cymraeg
+                </a>
+              </li>
+            </ul>
+          </nav>
     </div>
   </header>
 {% endblock %}
