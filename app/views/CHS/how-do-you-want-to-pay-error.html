@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  How do you want to pay
+  Error: How do you want to pay
 {% endblock %}
 {% set serviceName %}
+Companies House payment service
 {% endset%}
 {% block beforeContent %}
 
@@ -17,6 +18,15 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="https://products.payments.service.gov.uk/pay/9d4087fb5929476b82fd7a941005b9ce">
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+            {
+              "text": "Select how you want to pay",
+              "href": "#payment-option"
+            }
+          ]
+        }) }}
 
 {{ govukRadios({
   idPrefix: "payment-option",
@@ -32,17 +42,16 @@
   items: [
     {
       value: "card",
-      text: "Credit or Debit Card"
+      text: "Credit or debit card"
     },
     {
       value: "paypal",
-      text: "Paypal"
-    },
-    {
-      value: "account",
-      text: "Companies House Account"
+      text: "PayPal"
     }
-  ]
+    ],
+     errorMessage: {
+       text: "Select how you want to pay"
+     }
 }) }}
 
 
