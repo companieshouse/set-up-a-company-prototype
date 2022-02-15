@@ -83,13 +83,14 @@
         {{ govukButton({
           text: "Save and continue"
         }) }}
+        {{ govukDetails({
+          summaryText: "What is a subsidiary and parent company?",
+          html: "<p>A subsidiary is a company that is either owned or partly owned by another company. The company that owns the subsidiary is known as a parent company.</p>"
+        }) }}
 
       </form>
 
     </div>
   </div>
-  {{ govukDetails({
-    summaryText: "What is a subsidiary and parent company?",
-    html: "<p>A subsidiary company is a company that is either owned or partly owned by another company. The company that owns the subsidiary is known as a parent company.</p>"
-  }) }}
+
 {% endblock %}
