@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Upload evidence that you can use MA LIMITED
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <!-- DEVS: Ignore the HTML here, it's not correct, but it means the error validation works -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Upload evidence to prove that you can use the name MA LIMITED</h1>
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "In the evidence, each company must confirm you are part of the same group of companies (as a subsidiary or parent company), and you have their permission to use the name.",
+        iconFallbackText: "Warning"
+      }) }}
+      {{ govukDetails({
+        summaryText: "What is a subsidiary and parent company?",
+        html: "<p>A subsidiary is a company that is either owned or partly owned by another company. The company that owns the subsidiary is known as a parent company.</p>"
+      }) }}
+            <h3 class="govuk-heading-s">Evidence needed</h3>
+      <p class="govuk-body">You need to upload evidence, such as a letter, from:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>MA & CO LIMITED</li>
+        <li>MA (UK) LTD</li>
+      </ul>
+
+      <form class="form" action="company-name" method="get">
+
+        {{ govukFileUpload({
+          id: "file-upload-1",
+          name: "file-upload-1",
+          hint:{
+            text: "You can only upload one PDF document that is smaller than 10MB"
+          },
+          label: {
+            text: "Upload a file"
+          }
+        }) }}
+        <h3 class="govuk-heading-s">How the evidence will be used</h3>
+        <p class="govuk-body">The evidence you upload:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>will be reviewed as part of this application</li>
+          <li>will not appear on the public record</li>
+        </ul>
+        <p>
+        </p>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+      <p><a href="company-name">Try a different name instead</a><p>
+{% endblock %}
